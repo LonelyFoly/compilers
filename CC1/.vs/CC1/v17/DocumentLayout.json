@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0435\u0439\\desktop\\cc1\\cc1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|solutionrelative:cc1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0435\u0439\\desktop\\cc1\\cc1\\main_objects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|solutionrelative:cc1\\main_objects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0435\u0439\\desktop\\cc1\\cc1\\handlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4FDF10E-7BB0-46C3-B8E4-A363F69B9818}|CC1\\CC1.csproj|solutionrelative:cc1\\handlers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "handlers.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\handlers.cs",
+              "RelativeDocumentMoniker": "CC1\\handlers.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\handlers.cs",
+              "RelativeToolTip": "CC1\\handlers.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAcwNUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T21:14:43.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main_objects.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\main_objects.cs",
+              "RelativeDocumentMoniker": "CC1\\main_objects.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\main_objects.cs",
+              "RelativeToolTip": "CC1\\main_objects.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAswDkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T21:14:43.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\Program.cs",
+              "RelativeDocumentMoniker": "CC1\\Program.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\CC1\\CC1\\Program.cs",
+              "RelativeToolTip": "CC1\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T21:14:43.615Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
