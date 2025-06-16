@@ -1,0 +1,153 @@
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.IO;
+using PdfSharp.Fonts;
+
+
+
+
+namespace Graphics
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private TreeNode ConvertParseNodeToTreeNode(сс2.ParseNode node)
+        {
+            TreeNode treeNode = new TreeNode(node.Name);
+            foreach (var child in node.Children)
+            {
+                treeNode.Nodes.Add(ConvertParseNodeToTreeNode(child));
+            }
+            return treeNode;
+        }
+
+
+        string inputText;
+        сс2.Parser parser;
+        сс2.ParseNode root;
+        //для представления другой библиотекой можно оставить
+        //      при взаимодействии treeView1
+        private void CreateTree()
+        {
+            inputText = textBox1.Text;
+
+            parser = new сс2.Parser(new сс2.Lexer(inputText));
+            root = parser.Program();
+
+            //treeView1.Nodes.Clear();
+            //treeView1.Nodes.Add(ConvertParseNodeToTreeNode(root));
+            //treeView1.ExpandAll();
+        }
+
+
+        private void GeneratePdfTree(сс2.ParseNode node, string filename)
+        {
+            string projectDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(projectDir, @"..\..\.."));
+
+            PdfDocument document = new PdfDocument();
+            document.Info.Title = "Tree";
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            if (GlobalFontSettings.FontResolver == null)
+            {
+                GlobalFontSettings.FontResolver = new CustomFontResolver();
+            }
+
+            //XFont font = new XFont("Helvetica", 12, XFontStyleEx.Regular);
+            XFont font = new XFont("MyVerdana", 10, XFontStyleEx.Regular);
+            //            XFont font = new XFont("Verdana",14);
+
+            double startX = page.Width / 2;
+            double startY = 50;
+            double horizontalSpacing = 120;
+            double verticalSpacing = 120;
+
+            DrawNode(gfx, font, node, startX, startY, horizontalSpacing, verticalSpacing, page.Width);
+
+            string filePath = Path.Combine(projectRoot, "tree.pdf");
+            document.Save(filePath);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(pictureBox1);
+            this.Controls.Add(panel1);
+
+            panel1.Dock = DockStyle.Top;
+            panel1.Height = 100;
+            panel2.Height = 100;
+            panel2.Dock = DockStyle.Bottom;
+            pictureBox1.Dock = DockStyle.Fill;
+            CreateTree();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            inputText = textBox1.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateTree();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string rpn = parser.ToRPN(root);
+            textBox_output.Text = rpn;
+        }
+
+        private XRect rectanglePage;
+        private void button_PDF_Click(object sender, EventArgs e)
+        {
+            //PdfDocument document = new PdfDocument();
+
+            //PdfPage page = document.AddPage();
+            //page.Orientation = PdfSharp.PageOrientation.Landscape;
+            //XGraphics gfx = XGraphics.FromPdfPage(page);
+            //gfx.DrawRectangle(XBrushes.Red, rectanglePage);
+            //Rectangle rectangle = new Rectangle(0, 0, (int)page.Width.Point, (int)page.Height.Point);
+
+            //Bitmap bmp = new Bitmap(rectangle.Width, rectangle.Height);
+            //XGraphics g = XGraphics.FromImage(bmp);
+            //this.chart.Printing.PrintPaint(g, rectangle);
+
+            //XImage img = XImage.FromGdiPlusImage(bmp);
+            //gfx.DrawImage(img, 0, 0, page.Width, page.Height);
+            GeneratePdfTree(root, "tree.pdf");
+            MessageBox.Show("Пдф готово!");
+        }
+        private double d;
+        private double r;
+        private void DrawNode(XGraphics gfx, XFont font, сс2.ParseNode node, double x, double y, double hSpacing, double vSpacing, double pageWidth)
+        {
+            r = 20;
+
+            gfx.DrawEllipse(XPens.Black, XBrushes.LightBlue, x - r, y - r, 2*r, 2*r);
+            var textSize = gfx.MeasureString(node.Name, font);
+            gfx.DrawString(node.Name, font, XBrushes.Black, x - textSize.Width / 2, y + textSize.Height / 4);
+
+            if (node.Children.Count == 0) return;
+
+            double sub_W = hSpacing * (node.Children.Count - 1);
+            double childX = x - sub_W / 2;
+
+            foreach (var child in node.Children)
+            {
+                double childY = y + vSpacing;
+                gfx.DrawLine(XPens.Black, x, y + r, childX, childY - r);
+                DrawNode(gfx, font, child, childX, childY, hSpacing / 1.5, vSpacing, pageWidth);
+
+                childX += hSpacing;
+            }
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
